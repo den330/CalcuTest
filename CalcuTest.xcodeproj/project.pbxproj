@@ -14,6 +14,7 @@
 		906B94551C83960800E26F4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906B94531C83960800E26F4B /* LaunchScreen.storyboard */; };
 		906B945D1C83E98700E26F4B /* operationSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B945C1C83E98700E26F4B /* operationSelectionController.swift */; };
 		908F23A51C84EE8300EE92AB /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908F23A41C84EE8300EE92AB /* Calculator.swift */; };
+		90C51C4C1C851C0000056516 /* recordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C51C4B1C851C0000056516 /* recordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		906B94561C83960800E26F4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		906B945C1C83E98700E26F4B /* operationSelectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = operationSelectionController.swift; sourceTree = "<group>"; };
 		908F23A41C84EE8300EE92AB /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		90C51C4B1C851C0000056516 /* recordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				906B944C1C83960800E26F4B /* CalcuViewController.swift */,
 				908F23A41C84EE8300EE92AB /* Calculator.swift */,
+				90C51C4B1C851C0000056516 /* recordViewController.swift */,
 				906B945C1C83E98700E26F4B /* operationSelectionController.swift */,
 				906B944A1C83960800E26F4B /* AppDelegate.swift */,
 				906B944E1C83960800E26F4B /* Main.storyboard */,
@@ -145,6 +148,7 @@
 				906B944D1C83960800E26F4B /* CalcuViewController.swift in Sources */,
 				908F23A51C84EE8300EE92AB /* Calculator.swift in Sources */,
 				906B945D1C83E98700E26F4B /* operationSelectionController.swift in Sources */,
+				90C51C4C1C851C0000056516 /* recordViewController.swift in Sources */,
 				906B944B1C83960800E26F4B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

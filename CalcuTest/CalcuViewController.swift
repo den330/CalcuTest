@@ -10,6 +10,8 @@ import UIKit
 
 class CalcuViewController: UIViewController {
     var Cal = Calculator()
+    var CorrectRecord = ["Right": 0, "Wrong": 0]
+    
     
     var indexrow: Int!
     override func viewDidLoad() {
@@ -68,17 +70,28 @@ class CalcuViewController: UIViewController {
             began = false
             begin()
         }
+        print("\(CorrectRecord)")
     }
     
     @IBAction func userConfirm(sender: UIButton) {
         if began{
             if UserInput.text! == "\(correctAns)"{
+                CorrectRecord["Right"]! += 1
                 showRight.text = "You are right"
             }else{
+                CorrectRecord["Wrong"]! += 1
                 showRight.text = "You are wrong"
             }
         }else{
             showRight.text = "Click 'Begin' first please"
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let identifier = segue.identifier
+        if identifier == "showrecord"{
+            let recordContro = segue.destinationViewController as! recordViewController
+            recordContro.recordLst = CorrectRecord
         }
     }
 }
