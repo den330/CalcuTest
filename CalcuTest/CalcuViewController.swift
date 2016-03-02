@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol Calrecord: class{
+    func savetherecord(addRecord: Bool)
+}
+
 class CalcuViewController: UIViewController {
     var Cal = Calculator()
     var CorrectRecord = ["Right": 0, "Wrong": 0]
+    weak var delegate: Calrecord?
     
     
     var indexrow: Int!
@@ -77,9 +82,11 @@ class CalcuViewController: UIViewController {
         if began{
             if UserInput.text! == "\(correctAns)"{
                 CorrectRecord["Right"]! += 1
+                delegate?.savetherecord(true)
                 showRight.text = "You are right"
             }else{
                 CorrectRecord["Wrong"]! += 1
+                delegate?.savetherecord(false)
                 showRight.text = "You are wrong"
             }
         }else{

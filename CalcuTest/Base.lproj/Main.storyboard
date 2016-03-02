@@ -126,7 +126,13 @@
                             <outlet property="delegate" destination="8qt-zh-Dyr" id="nq1-we-xz9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Operation Selection" id="bP2-g0-qWI"/>
+                    <navigationItem key="navigationItem" title="Operation Selection" id="bP2-g0-qWI">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="tUy-89-xh0">
+                            <connections>
+                                <segue destination="S92-6g-lml" kind="show" identifier="showhistory" id="mup-bS-YWf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showmainpage" id="OWA-hJ-Oqp"/>
                     </connections>
@@ -324,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="607-fL-VIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1891" y="199"/>
+            <point key="canvasLocation" x="763" y="1075"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XMg-oi-CNt">
@@ -346,4 +352,7 @@
             <point key="canvasLocation" x="-421" y="199"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mup-bS-YWf"/>
+    </inferredMetricsTieBreakers>
 </document>
