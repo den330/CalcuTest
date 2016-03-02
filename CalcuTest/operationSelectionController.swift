@@ -9,28 +9,11 @@
 import UIKit
 
 class operationSelectionController: UITableViewController, Calrecord {
-    var historyList = ["Correct": 0, "False": 0]
+    var DictList: DataFile!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
-    required init?(coder aDecoder: NSCoder){
-        super.init(coder:aDecoder)
-        loadHist()
-    }
-    
-    func loadHist(){
-        let path = dataFilePath()
-        if NSFileManager.defaultManager().fileExistsAtPath(path){
-            if let data = NSData(contentsOfFile: path){
-                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-                historyList = unarchiver.decodeObjectForKey("history") as! [String: Int]
-                unarchiver.finishDecoding()
-            }
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,35 +31,15 @@ class operationSelectionController: UITableViewController, Calrecord {
             mainController.delegate = self
         }else if identifier == "showhistory"{
             let mainController = segue.destinationViewController as! recordViewController
-            mainController.recordLst = historyList
+            mainController.recordLst = DictList.CorrectLst
         }
-    }
-    
-    func documentDirectory() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        return paths[0]
-    }
-    
-    func dataFilePath() -> String{
-        return (documentDirectory() as NSString).stringByAppendingPathComponent("history.plist")
-    }
-    
-    func saveCalrecord(){
-        let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-        archiver.encodeObject(historyList, forKey: "history")
-        archiver.finishEncoding()
-        data.writeToFile(dataFilePath(), atomically: true)
     }
     
     func savetherecord(addRecord:Bool){
         if addRecord{
-            historyList["Correct"]! += 1
+            DictList.CorrectLst["Correct"]! += 1
         }else{
-            historyList["False"]! += 1
+            DictList.CorrectLst["False"]! += 1
         }
-        saveCalrecord()
     }
-
-
 }
