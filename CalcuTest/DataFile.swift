@@ -9,7 +9,7 @@
 import Foundation
 
 class DataFile{
-    var CorrectLst = [String: Int]()
+    var CorrectLst = ["Correct":0, "False": 0]
     
     init(){
         loadHist()
@@ -41,6 +41,12 @@ class DataFile{
         archiver.encodeObject(CorrectLst, forKey: "history")
         archiver.finishEncoding()
         data.writeToFile(dataFilePath(), atomically: true)
+    }
+    
+    func clearHist(){
+        CorrectLst["Correct"] = 0
+        CorrectLst["False"] = 0
+        saveCalrecord()
     }
     
 }

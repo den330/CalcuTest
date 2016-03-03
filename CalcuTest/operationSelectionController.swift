@@ -42,4 +42,10 @@ class operationSelectionController: UITableViewController, Calrecord {
             DictList.CorrectLst["False"]! += 1
         }
     }
+    
+    @IBAction func clearHist(sender: UIBarButtonItem) {
+        DictList.clearHist()
+    }
+    
+    
 }

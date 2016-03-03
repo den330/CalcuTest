@@ -127,6 +127,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Operation Selection" id="bP2-g0-qWI">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="uqM-DG-aC5">
+                            <connections>
+                                <action selector="clearHist:" destination="8qt-zh-Dyr" id="Wys-X4-Dky"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="History" id="tUy-89-xh0">
                             <connections>
                                 <segue destination="S92-6g-lml" kind="show" identifier="showhistory" id="mup-bS-YWf"/>
