@@ -8,7 +8,7 @@
 
 import UIKit
 
-class operationSelectionController: UITableViewController, Calrecord {
+class operationSelectionController: UITableViewController, Calrecord,dataClear {
     var DictList: DataFile!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +32,7 @@ class operationSelectionController: UITableViewController, Calrecord {
         }else if identifier == "showhistory"{
             let mainController = segue.destinationViewController as! recordViewController
             mainController.recordLst = DictList.CorrectLst
+            mainController.delegate = self
         }
     }
     
@@ -43,9 +44,7 @@ class operationSelectionController: UITableViewController, Calrecord {
         }
     }
     
-    @IBAction func clearHist(sender: UIBarButtonItem) {
+    func clear(){
         DictList.clearHist()
     }
-    
-    
 }

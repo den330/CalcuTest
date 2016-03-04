@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol dataClear:class{
+    func clear()
+}
+
 class recordViewController: UIViewController {
+    weak var delegate: dataClear?
     @IBOutlet weak var recordLabel: UILabel!
+    
     var recordLst = [String:Int]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +29,10 @@ class recordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func clearHist() {
+        delegate?.clear()
+        recordLabel.text = "['False' : 0, 'Correct': 0]"
+    }
 
     
     
