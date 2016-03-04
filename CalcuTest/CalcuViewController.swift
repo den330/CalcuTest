@@ -8,17 +8,13 @@
 
 import UIKit
 
-protocol Calrecord: class{
-    func savetherecord(addRecord: Bool)
-}
+
 
 class CalcuViewController: UIViewController {
     var Cal = Calculator()
-    var CorrectRecord = ["Right": 0, "Wrong": 0]
-    weak var delegate: Calrecord?
-    
-    
+    var dictRec: DataFile!
     var indexrow: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if indexrow == 0{
@@ -75,30 +71,30 @@ class CalcuViewController: UIViewController {
             began = false
             begin()
         }
-        print("\(CorrectRecord)")
     }
     
     @IBAction func userConfirm(sender: UIButton) {
         if began{
             if UserInput.text! == "\(correctAns)"{
-                CorrectRecord["Right"]! += 1
-                delegate?.savetherecord(true)
+                dictRec.CorrectLst["Correct"]! += 1
                 showRight.text = "You are right"
+                dictRec.saveCalrecord()
             }else{
-                CorrectRecord["Wrong"]! += 1
-                delegate?.savetherecord(false)
+                dictRec.CorrectLst["False"]! += 1
                 showRight.text = "You are wrong"
+                dictRec.saveCalrecord()
             }
         }else{
             showRight.text = "Click 'Begin' first please"
         }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let identifier = segue.identifier
         if identifier == "showrecord"{
-            let recordContro = segue.destinationViewController as! recordViewController
-            recordContro.recordLst = CorrectRecord
+            let controller = segue.destinationViewController as! recordViewController
+            controller.dictRecord = dictRec
         }
     }
 }

@@ -8,18 +8,16 @@
 
 import UIKit
 
-protocol dataClear:class{
-    func clear()
-}
+
 
 class recordViewController: UIViewController {
-    weak var delegate: dataClear?
+    var dictRecord: DataFile!
     @IBOutlet weak var recordLabel: UILabel!
     
-    var recordLst = [String:Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        recordLabel.text = "\(recordLst)"
+        recordLabel.text = "\(dictRecord.CorrectLst)"
 
         // Do any additional setup after loading the view.
     }
@@ -30,8 +28,8 @@ class recordViewController: UIViewController {
     }
     
     @IBAction func clearHist() {
-        delegate?.clear()
-        recordLabel.text = "['Correct':0, 'False': 0]"
+        dictRecord.clearHist()
+        recordLabel.text = "\(dictRecord.CorrectLst)"
     }
 
     

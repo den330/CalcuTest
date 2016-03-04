@@ -8,7 +8,7 @@
 
 import UIKit
 
-class operationSelectionController: UITableViewController, Calrecord,dataClear {
+class operationSelectionController: UITableViewController{
     var DictList: DataFile!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,23 +28,11 @@ class operationSelectionController: UITableViewController, Calrecord,dataClear {
         if identifier == "showmainpage"{
             let mainController = segue.destinationViewController as! CalcuViewController
             mainController.indexrow = sender as! Int
-            mainController.delegate = self
+            mainController.dictRec = DictList
+           
         }else if identifier == "showhistory"{
             let mainController = segue.destinationViewController as! recordViewController
-            mainController.recordLst = DictList.CorrectLst
-            mainController.delegate = self
+            mainController.dictRecord = DictList
         }
-    }
-    
-    func savetherecord(addRecord:Bool){
-        if addRecord{
-            DictList.CorrectLst["Correct"]! += 1
-        }else{
-            DictList.CorrectLst["False"]! += 1
-        }
-    }
-    
-    func clear(){
-        DictList.clearHist()
     }
 }

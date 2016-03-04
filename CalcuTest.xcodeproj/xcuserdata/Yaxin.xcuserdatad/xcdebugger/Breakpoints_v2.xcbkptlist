@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalcuTest/AppDelegate.swift"
+            timestampString = "478803377.895926"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalcuTest.AppDelegate.__deallocating_deinit"
+                  moduleName = "CalcuTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Yaxin/GitHub/CalcuTest/CalcuTest/AppDelegate.swift"
+                  timestampString = "478803377.904188"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalcuTest.AppDelegate.init (CalcuTest.AppDelegate.Type)() -&gt; CalcuTest.AppDelegate"
+                  moduleName = "CalcuTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Yaxin/GitHub/CalcuTest/CalcuTest/AppDelegate.swift"
+                  timestampString = "478803377.904692"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "CalcuTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Yaxin/GitHub/CalcuTest/CalcuTest/AppDelegate.swift"
+                  timestampString = "478803377.905015"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
