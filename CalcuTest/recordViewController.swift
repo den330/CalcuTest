@@ -31,7 +31,7 @@ class recordViewController: UIViewController {
     
     @IBAction func clearHist() {
         delegate?.clear()
-        recordLabel.text = "['False' : 0, 'Correct': 0]"
+        recordLabel.text = "['Correct':0, 'False': 0]"
     }
 
     
