@@ -26,6 +26,7 @@ class CalcuViewController: UIViewController {
         }else{
             operation.text = "-"
         }
+        begin()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +55,7 @@ class CalcuViewController: UIViewController {
     @IBOutlet weak var UserInput: UITextField!
     @IBOutlet weak var showRight: UILabel!
     
-    @IBAction func begin() {
+    func begin() {
         if !began{
             let upper = (Int(arc4random_uniform(100) + 1))
             let lower = (Int(arc4random_uniform(100) + 1))
