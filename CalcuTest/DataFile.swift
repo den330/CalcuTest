@@ -13,6 +13,7 @@ class DataFile{
     
     init(){
         loadHist()
+        registerDefaults()
     }
     
     func loadHist(){
@@ -47,6 +48,11 @@ class DataFile{
         CorrectLst["Correct"] = 0
         CorrectLst["False"] = 0
         saveCalrecord()
+    }
+    
+    func registerDefaults(){
+        let dictionary = ["Operation" : -1]
+        NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
     }
     
 }

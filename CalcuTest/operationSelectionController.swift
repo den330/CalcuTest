@@ -8,10 +8,19 @@
 
 import UIKit
 
-class operationSelectionController: UITableViewController{
+class operationSelectionController: UITableViewController,UINavigationControllerDelegate{
     var DictList: DataFile!
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.delegate = self
+        let index = NSUserDefaults.standardUserDefaults().integerForKey("Operation")
+        if index != -1{
+            performSegueWithIdentifier("showmainpage", sender: index)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -20,6 +29,7 @@ class operationSelectionController: UITableViewController{
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        NSUserDefaults.standardUserDefaults().setInteger(indexPath.row, forKey: "Operation")
         performSegueWithIdentifier("showmainpage", sender: indexPath.row)
     }
     
@@ -33,6 +43,12 @@ class operationSelectionController: UITableViewController{
         }else if identifier == "showhistory"{
             let mainController = segue.destinationViewController as! recordViewController
             mainController.dictRecord = DictList
+        }
+    }
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        if viewController === self{
+            NSUserDefaults.standardUserDefaults().setInteger(-1, forKey: "Operation")
         }
     }
 }
