@@ -11,6 +11,15 @@ import Foundation
 class DataFile{
     var CorrectLst = ["Correct":0, "False": 0]
     
+    var operationNum: Int{
+        get{
+            return NSUserDefaults.standardUserDefaults().integerForKey("Operation")
+        }
+        set{
+            NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "Operation")
+        }
+    }
+    
     init(){
         loadHist()
         registerDefaults()

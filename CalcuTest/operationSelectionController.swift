@@ -17,7 +17,7 @@ class operationSelectionController: UITableViewController,UINavigationController
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.delegate = self
-        let index = NSUserDefaults.standardUserDefaults().integerForKey("Operation")
+        let index = DictList.operationNum
         if index != -1{
             performSegueWithIdentifier("showmainpage", sender: index)
         }
@@ -29,7 +29,7 @@ class operationSelectionController: UITableViewController,UINavigationController
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        NSUserDefaults.standardUserDefaults().setInteger(indexPath.row, forKey: "Operation")
+        DictList.operationNum = indexPath.row
         performSegueWithIdentifier("showmainpage", sender: indexPath.row)
     }
     
@@ -48,7 +48,7 @@ class operationSelectionController: UITableViewController,UINavigationController
     
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
         if viewController === self{
-            NSUserDefaults.standardUserDefaults().setInteger(-1, forKey: "Operation")
+            DictList.operationNum = -1
         }
     }
 }
