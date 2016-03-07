@@ -10,6 +10,8 @@ import Foundation
 
 class DataFile{
     var CorrectLst = ["Correct":0, "False": 0]
+    var Numlst = ["leftNum": 0, "rightNum": 0]
+    var flag = false
     
     var operationNum: Int{
         get{
@@ -21,16 +23,26 @@ class DataFile{
     }
     
     init(){
-        loadHist()
+        load("history.plist", key: "history")
+        load("number.plist", key: "num")
         registerDefaults()
     }
     
-    func loadHist(){
-        let path = dataFilePath()
+    func randomize(){
+        Numlst["leftNum"] = (Int(arc4random_uniform(100) + 1))
+        Numlst["rightNum"] = (Int(arc4random_uniform(100) + 1))
+    }
+    
+    func load(filename: String, key: String){
+        let path = dataFilePath(filename)
         if NSFileManager.defaultManager().fileExistsAtPath(path){
             if let data = NSData(contentsOfFile: path){
                 let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-                CorrectLst = unarchiver.decodeObjectForKey("history") as! [String: Int]
+                if filename == "history.plist"{
+                    CorrectLst = unarchiver.decodeObjectForKey(key) as! [String: Int]
+                }else{
+                    Numlst = unarchiver.decodeObjectForKey(key) as! [String: Int]
+                }
                 unarchiver.finishDecoding()
             }
         }
@@ -41,22 +53,22 @@ class DataFile{
         return paths[0]
     }
     
-    func dataFilePath() -> String{
-        return (documentDirectory() as NSString).stringByAppendingPathComponent("history.plist")
+    func dataFilePath(filename: String) -> String{
+        return (documentDirectory() as NSString).stringByAppendingPathComponent(filename)
     }
     
-    func saveCalrecord(){
+    func save(filename: String, key: String, lst: [String:Int]){
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-        archiver.encodeObject(CorrectLst, forKey: "history")
+        archiver.encodeObject(lst, forKey: key)
         archiver.finishEncoding()
-        data.writeToFile(dataFilePath(), atomically: true)
+        data.writeToFile(dataFilePath(filename), atomically: true)
     }
     
     func clearHist(){
         CorrectLst["Correct"] = 0
         CorrectLst["False"] = 0
-        saveCalrecord()
+        save("history.plist", key:"history", lst: CorrectLst)
     }
     
     func registerDefaults(){

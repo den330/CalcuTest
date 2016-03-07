@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let datafile = DataFile()
     
     func savedata(){
-        datafile.saveCalrecord()
+        datafile.save("history.plist", key: "history", lst: datafile.CorrectLst)
+        datafile.save("number.plist",key: "num", lst: datafile.Numlst)
     }
 
 

@@ -19,6 +19,7 @@ class operationSelectionController: UITableViewController,UINavigationController
         navigationController?.delegate = self
         let index = DictList.operationNum
         if index != -1{
+            DictList.flag = true
             performSegueWithIdentifier("showmainpage", sender: index)
         }
     }
@@ -27,6 +28,8 @@ class operationSelectionController: UITableViewController,UINavigationController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         DictList.operationNum = indexPath.row
@@ -49,6 +52,9 @@ class operationSelectionController: UITableViewController,UINavigationController
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
         if viewController === self{
             DictList.operationNum = -1
+            if DictList.flag{
+                DictList.flag = false
+            }
         }
     }
 }

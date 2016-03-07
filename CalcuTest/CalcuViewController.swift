@@ -13,7 +13,9 @@ import UIKit
 class CalcuViewController: UIViewController {
     var Cal = Calculator()
     var dictRec: DataFile!
+    var correctAns: Int!
     var indexrow: Int!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,12 @@ class CalcuViewController: UIViewController {
         }else{
             operation.text = "-"
         }
-        begin()
+        if dictRec.flag{
+            leftLabel.text = String(dictRec.Numlst["leftNum"]!)
+            rightLabel.text = String(dictRec.Numlst["rightNum"]!)
+        }else{
+            begin()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,10 +41,7 @@ class CalcuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    var began = false
-    var correctAns: Int!
-    
-    func operate(num1: Int, num2: Int) -> Int{
+   func operate(num1: Int, num2: Int) -> Int{
         var result = 0
         switch indexrow{
         case 0: result = Cal.multi(num1, num2: num2)
@@ -50,45 +54,33 @@ class CalcuViewController: UIViewController {
     }
     
     @IBOutlet weak var operation: UILabel!
-    @IBOutlet weak var upperLabel: UILabel!
-    @IBOutlet weak var lowerLabel: UILabel!
+    @IBOutlet weak var leftLabel: UILabel!
+    @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var UserInput: UITextField!
     @IBOutlet weak var showRight: UILabel!
     
     func begin() {
-        if !began{
-            let upper = (Int(arc4random_uniform(100) + 1))
-            let lower = (Int(arc4random_uniform(100) + 1))
-            correctAns = operate(upper, num2: lower)
-            upperLabel.text = String(upper)
-            lowerLabel.text = String(lower)
-            began = true
-        }
+            dictRec.randomize()
+            let leftNum = dictRec.Numlst["leftNum"]!
+            let rightNum = dictRec.Numlst["rightNum"]!
+            correctAns = operate(leftNum, num2: rightNum)
+            leftLabel.text = String(leftNum)
+            rightLabel.text = String(rightNum)
     }
     
     
     @IBAction func next() {
-        if began {
-            began = false
-            begin()
-        }
+        begin()
     }
     
     @IBAction func userConfirm(sender: UIButton) {
-        if began{
             if UserInput.text! == "\(correctAns)"{
                 dictRec.CorrectLst["Correct"]! += 1
                 showRight.text = "You are right"
-                dictRec.saveCalrecord()
             }else{
                 dictRec.CorrectLst["False"]! += 1
                 showRight.text = "You are wrong"
-                dictRec.saveCalrecord()
             }
-        }else{
-            showRight.text = "Click 'Begin' first please"
-        }
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

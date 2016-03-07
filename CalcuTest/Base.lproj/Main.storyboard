@@ -253,10 +253,10 @@
                     <navigationItem key="navigationItem" id="eds-a8-tNj"/>
                     <connections>
                         <outlet property="UserInput" destination="pxf-pk-tmh" id="sIM-lO-6YM"/>
-                        <outlet property="lowerLabel" destination="Nfd-sU-5bj" id="mIH-ef-hoc"/>
+                        <outlet property="leftLabel" destination="JFO-oF-ZeP" id="yMg-LW-g7O"/>
                         <outlet property="operation" destination="M21-Wg-TAZ" id="dlb-DW-cR6"/>
+                        <outlet property="rightLabel" destination="Nfd-sU-5bj" id="mIH-ef-hoc"/>
                         <outlet property="showRight" destination="Xy0-Ru-g95" id="YkY-tL-xMU"/>
-                        <outlet property="upperLabel" destination="JFO-oF-ZeP" id="95L-sq-RmY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
