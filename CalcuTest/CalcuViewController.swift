@@ -71,6 +71,7 @@ class CalcuViewController: UIViewController {
     
     @IBAction func next() {
         begin()
+        UserInput.text = ""
     }
     
     @IBAction func userConfirm(sender: UIButton) {
