@@ -19,8 +19,9 @@ class operationSelectionController: UITableViewController,UINavigationController
         navigationController?.delegate = self
         let index = DictList.operationNum
         if index != -1{
+            let opera = DictList.OpeLst[index]
             DictList.flag = true
-            performSegueWithIdentifier("showmainpage", sender: index)
+            performSegueWithIdentifier("showmainpage", sender: opera)
         }
     }
     
@@ -29,18 +30,39 @@ class operationSelectionController: UITableViewController,UINavigationController
         // Dispose of any resources that can be recreated.
     }
     
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = cellForTableView(tableView)
+        let index = indexPath.row
+        cell.textLabel!.text = DictList.OpeLst[index].text
+        return cell
+    }
+    
+    func cellForTableView(tableView: UITableView) -> UITableViewCell {
+        let cellIdentifier = "Cell"
+        if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) {
+            return cell
+        } else {
+            return UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
+        }
+    }
+    
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let calculator = DictList.OpeLst[indexPath.row]
         DictList.operationNum = indexPath.row
-        performSegueWithIdentifier("showmainpage", sender: indexPath.row)
+        performSegueWithIdentifier("showmainpage", sender: calculator)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let identifier = segue.identifier
         if identifier == "showmainpage"{
             let mainController = segue.destinationViewController as! CalcuViewController
-            mainController.indexrow = sender as! Int
+            mainController.Cal = sender as! Calculator
             mainController.dictRec = DictList
            
         }else if identifier == "showhistory"{

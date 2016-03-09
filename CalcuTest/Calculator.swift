@@ -10,22 +10,23 @@ import Foundation
 
 class Calculator{
     
+    var text: String
+
     
-    func add(num1: Int, num2: Int) -> Int{
-        return num1 + num2
+    init(text:String){
+        self.text = text
     }
     
-    func minus(num1: Int, num2: Int) -> Int{
-        return num1 - num2
-    }
-    
-    
-    func multi(num1: Int, num2: Int) -> Int{
-        return num1 * num2
-    }
-    
-    func divi(num1: Int, num2: Int) -> Int{
-        return num1 / num2
+    func calCu(num1: Int, num2: Int) -> Int{
+        var result = 0
+        switch text{
+        case "+": result = num1 + num2
+        case "-":  result = num1 - num2
+        case "*": result = num1 * num2
+        case "/": result = num1 / num2
+        default: break
+        }
+        return result
     }
 
 }

@@ -12,6 +12,8 @@ class DataFile{
     var CorrectLst = ["Correct":0, "False": 0]
     var Numlst = ["leftNum": 0, "rightNum": 0]
     var flag = false
+    var OpeLst = [Calculator(text: "+"), Calculator(text: "-"), Calculator(text: "*"), Calculator(text: "/")]
+   
     
     var operationNum: Int{
         get{
