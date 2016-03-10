@@ -14,7 +14,7 @@ class CalcuViewController: UIViewController {
     var Cal: Calculator!
     var dictRec: DataFile!
     var correctAns: Int!
-    var indexrow: Int!
+    
     
     
     override func viewDidLoad() {

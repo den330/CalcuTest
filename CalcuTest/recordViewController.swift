@@ -31,9 +31,4 @@ class recordViewController: UIViewController {
         dictRecord.clearHist()
         recordLabel.text = "\(dictRecord.CorrectLst)"
     }
-
-    
-    
-
-
 }
