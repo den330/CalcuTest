@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func savedata(){
         datafile.save("history.plist", key: "history", lst: datafile.CorrectLst)
         datafile.save("number.plist",key: "num", lst: datafile.Numlst)
+        datafile.saveSchedule()
     }
 
 

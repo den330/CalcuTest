@@ -6,6 +6,114 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Schedule Table View Controller-->
+        <scene sceneID="n0z-OT-zcy">
+            <objects>
+                <tableViewController id="ZJk-3S-tr4" customClass="ScheduleTableViewController" customModule="CalcuTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bh3-Af-4RP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="TFE-k5-IS5">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tYe-0C-hTA">
+                                        <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tYe-0C-hTA" id="6kC-JK-CnR">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Schedule For Next Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtH-F8-GF7">
+                                                    <rect key="frame" x="8" y="0.0" width="512" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q6N-B5-vni">
+                                                    <rect key="frame" x="528" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="shouldRemindToggled:" destination="ZJk-3S-tr4" eventType="valueChanged" id="dDb-Zp-jgd"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="q6N-B5-vni" secondAttribute="trailing" constant="15" id="0b5-G8-pfO"/>
+                                                <constraint firstItem="q6N-B5-vni" firstAttribute="top" secondItem="6kC-JK-CnR" secondAttribute="topMargin" constant="-2" id="7dr-8m-N4B"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WHW-zf-nuk">
+                                        <rect key="frame" x="0.0" y="108" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WHW-zf-nuk" id="CTr-Eu-4VX">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date &amp; Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB7-sP-Nt5">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="ZJk-3S-tr4" id="eoe-Ix-qAR"/>
+                            <outlet property="delegate" destination="ZJk-3S-tr4" id="3ju-9w-iQf"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="olp-7y-es2"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="nvo-XN-9lZ">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="zp0-ia-ckw">
+                            <connections>
+                                <action selector="done" destination="ZJk-3S-tr4" id="goh-yK-gIJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="datePicker" destination="eTB-ua-V9l" id="zWe-fZ-a8f"/>
+                        <outlet property="datePickerCell" destination="CvS-UU-wOn" id="zQv-Zg-xJA"/>
+                        <outlet property="dueDateLabel" destination="FB7-sP-Nt5" id="oyJ-Uz-fEF"/>
+                        <outlet property="shouldRemindSwitch" destination="q6N-B5-vni" id="bDd-cC-VRl"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="biA-B7-f9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="CvS-UU-wOn">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="217"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CvS-UU-wOn" id="FrG-Lc-RaC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eTB-ua-V9l">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="479404019.33694702">
+                                    <!--2016-03-11 15:46:59 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="ZJk-3S-tr4" eventType="valueChanged" id="nXS-98-xTg"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eTB-ua-V9l" secondAttribute="bottom" id="2kM-Gk-50K"/>
+                            <constraint firstAttribute="trailing" secondItem="eTB-ua-V9l" secondAttribute="trailing" id="K6e-rJ-LS3"/>
+                            <constraint firstItem="eTB-ua-V9l" firstAttribute="top" secondItem="FrG-Lc-RaC" secondAttribute="top" id="oMJ-l6-iUZ"/>
+                            <constraint firstItem="eTB-ua-V9l" firstAttribute="leading" secondItem="FrG-Lc-RaC" secondAttribute="leading" id="oZF-CR-szg"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                </tableViewCell>
+            </objects>
+            <point key="canvasLocation" x="1074" y="-620"/>
+        </scene>
         <!--Operation Selection-->
         <scene sceneID="isC-QY-qKr">
             <objects>
@@ -21,6 +129,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Operation Selection" id="bP2-g0-qWI">
+                        <barButtonItem key="leftBarButtonItem" title="Schedule" id="Nn4-Ax-Ajh">
+                            <connections>
+                                <segue destination="ZJk-3S-tr4" kind="show" identifier="showschedule" id="tDr-BR-MI6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="History" id="tUy-89-xh0">
                             <connections>
                                 <segue destination="S92-6g-lml" kind="show" identifier="showhistory" id="mup-bS-YWf"/>

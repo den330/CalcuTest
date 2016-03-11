@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9019A86C1C9316E500C3F2CD /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9019A86B1C9316E500C3F2CD /* ScheduleTableViewController.swift */; };
+		9019A86E1C93174700C3F2CD /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9019A86D1C93174700C3F2CD /* Reminder.swift */; };
 		90491F921C879FCD001B31B5 /* DataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90491F911C879FCD001B31B5 /* DataFile.swift */; };
 		906B944B1C83960800E26F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B944A1C83960800E26F4B /* AppDelegate.swift */; };
 		906B944D1C83960800E26F4B /* CalcuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B944C1C83960800E26F4B /* CalcuViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9019A86B1C9316E500C3F2CD /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		9019A86D1C93174700C3F2CD /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		90491F911C879FCD001B31B5 /* DataFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFile.swift; sourceTree = "<group>"; };
 		906B94471C83960800E26F4B /* CalcuTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalcuTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		906B944A1C83960800E26F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				90491F911C879FCD001B31B5 /* DataFile.swift */,
 				906B944A1C83960800E26F4B /* AppDelegate.swift */,
 				906B944E1C83960800E26F4B /* Main.storyboard */,
+				9019A86D1C93174700C3F2CD /* Reminder.swift */,
+				9019A86B1C9316E500C3F2CD /* ScheduleTableViewController.swift */,
 				906B94511C83960800E26F4B /* Assets.xcassets */,
 				906B94531C83960800E26F4B /* LaunchScreen.storyboard */,
 				906B94561C83960800E26F4B /* Info.plist */,
@@ -152,8 +158,10 @@
 				908F23A51C84EE8300EE92AB /* Calculator.swift in Sources */,
 				906B945D1C83E98700E26F4B /* operationSelectionController.swift in Sources */,
 				90491F921C879FCD001B31B5 /* DataFile.swift in Sources */,
+				9019A86C1C9316E500C3F2CD /* ScheduleTableViewController.swift in Sources */,
 				90C51C4C1C851C0000056516 /* recordViewController.swift in Sources */,
 				906B944B1C83960800E26F4B /* AppDelegate.swift in Sources */,
+				9019A86E1C93174700C3F2CD /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

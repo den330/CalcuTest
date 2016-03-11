@@ -13,6 +13,9 @@ class DataFile{
     var Numlst = ["leftNum": 0, "rightNum": 0]
     var flag = false
     var OpeLst = [Calculator(text: "+"), Calculator(text: "-"), Calculator(text: "*"), Calculator(text: "/")]
+    var remin = Reminder()
+    
+    
    
     
     var operationNum: Int{
@@ -27,6 +30,7 @@ class DataFile{
     init(){
         load("history.plist", key: "history")
         load("number.plist", key: "num")
+        load("schedule.plist", key: "schedule")
         registerDefaults()
     }
     
@@ -42,8 +46,10 @@ class DataFile{
                 let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
                 if filename == "history.plist"{
                     CorrectLst = unarchiver.decodeObjectForKey(key) as! [String: Int]
-                }else{
+                }else if filename == "number.plist"{
                     Numlst = unarchiver.decodeObjectForKey(key) as! [String: Int]
+                }else{
+                    remin = unarchiver.decodeObjectForKey(key) as! Reminder
                 }
                 unarchiver.finishDecoding()
             }
@@ -67,10 +73,17 @@ class DataFile{
         data.writeToFile(dataFilePath(filename), atomically: true)
     }
     
+    func saveSchedule(){
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(remin, forKey: "schedule")
+        archiver.finishEncoding()
+        data.writeToFile(dataFilePath("schedule.plist"), atomically: true)
+    }
+    
     func clearHist(){
         CorrectLst["Correct"] = 0
         CorrectLst["False"] = 0
-        save("history.plist", key:"history", lst: CorrectLst)
     }
     
     func registerDefaults(){

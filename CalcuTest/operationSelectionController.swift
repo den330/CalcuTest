@@ -14,6 +14,8 @@ class operationSelectionController: UITableViewController,UINavigationController
         super.viewDidLoad()
     }
     
+
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.delegate = self
@@ -68,6 +70,9 @@ class operationSelectionController: UITableViewController,UINavigationController
         }else if identifier == "showhistory"{
             let mainController = segue.destinationViewController as! recordViewController
             mainController.dictRecord = DictList
+        }else if identifier == "showschedule"{
+            let mainController = segue.destinationViewController as!ScheduleTableViewController
+            mainController.ItemToEdit = DictList.remin
         }
     }
     
